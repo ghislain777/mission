@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "sgprg_secu",
-    "password": "AkxvDM4BzBtxnG4#",
-    "database": "sgprg_secu",
-    "host": "cagiassurances.zentechnologies.net",
+    "username": "miss_kaba",
+    "password": "daLrseEq3yM2x8eM",
+    "database": "miss_kaba",
+    "host": "missionkaba.zentechnologies.net",
     "dialect": "mysql"
   }
 }
