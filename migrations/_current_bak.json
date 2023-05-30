@@ -1,0 +1,785 @@
+{
+    "tables": {
+        "activite": {
+            "tableName": "activite",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "chemain": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Chemain",
+                    "field": "chemain",
+                    "seqType": "Sequelize.STRING"
+                },
+                "icone": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Icone",
+                    "field": "icone",
+                    "seqType": "Sequelize.STRING"
+                },
+                "position": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": 1
+                    },
+                    "comment": "Position",
+                    "field": "position",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "menu": {
+                    "allowNull": false,
+                    "name": "menu",
+                    "field": "menu",
+                    "references": {
+                        "model": "menu",
+                        "key": "id"
+                    },
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "commune": {
+            "tableName": "commune",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "population": {
+                    "allowNull": true,
+                    "comment": "Population",
+                    "field": "population",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "activiteprincipale": {
+                    "allowNull": true,
+                    "comment": "Activite principale",
+                    "field": "activiteprincipale",
+                    "seqType": "Sequelize.STRING"
+                },
+                "superficie": {
+                    "allowNull": true,
+                    "comment": "Superficie",
+                    "field": "superficie",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "prefecture": {
+                    "allowNull": true,
+                    "name": "prefecture",
+                    "field": "prefecture",
+                    "references": {
+                        "model": "prefecture",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "configuration": {
+            "tableName": "configuration",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "parametre": {
+                    "allowNull": false,
+                    "comment": "Paramètre",
+                    "field": "parametre",
+                    "seqType": "Sequelize.STRING"
+                },
+                "valeur": {
+                    "allowNull": false,
+                    "comment": "Valeur",
+                    "field": "valeur",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                }
+            },
+            "indexes": []
+        },
+        "contact": {
+            "tableName": "contact",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "prenom": {
+                    "allowNull": true,
+                    "comment": "Prénom",
+                    "field": "prenom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "telephone": {
+                    "allowNull": true,
+                    "comment": "Téléphone",
+                    "field": "telephone",
+                    "seqType": "Sequelize.STRING"
+                },
+                "typedecontact": {
+                    "allowNull": true,
+                    "comment": "Type de contact",
+                    "field": "typedecontact",
+                    "seqType": "Sequelize.STRING"
+                },
+                "fonction": {
+                    "allowNull": true,
+                    "comment": "Fonction",
+                    "field": "fonction",
+                    "seqType": "Sequelize.STRING"
+                },
+                "photo": {
+                    "allowNull": true,
+                    "comment": "Photo",
+                    "field": "photo",
+                    "seqType": "Sequelize.STRING"
+                },
+                "commentaire": {
+                    "allowNull": true,
+                    "comment": "Commentaire",
+                    "field": "commentaire",
+                    "seqType": "Sequelize.STRING"
+                },
+                "localite": {
+                    "allowNull": true,
+                    "name": "localite",
+                    "field": "localite",
+                    "references": {
+                        "model": "localite",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "district": {
+            "tableName": "district",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "population": {
+                    "allowNull": true,
+                    "comment": "Population",
+                    "field": "population",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "activiteprincipale": {
+                    "allowNull": true,
+                    "comment": "Activite principale",
+                    "field": "activiteprincipale",
+                    "seqType": "Sequelize.STRING"
+                },
+                "superficie": {
+                    "allowNull": true,
+                    "comment": "Superficie",
+                    "field": "superficie",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "commune": {
+                    "allowNull": true,
+                    "name": "commune",
+                    "field": "commune",
+                    "references": {
+                        "model": "commune",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "evenement": {
+            "tableName": "evenement",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "rapport": {
+                    "allowNull": true,
+                    "comment": "Rapport",
+                    "field": "rapport",
+                    "seqType": "Sequelize.STRING"
+                },
+                "typedevenement": {
+                    "allowNull": true,
+                    "comment": "Date de levenement",
+                    "field": "typedevenement",
+                    "seqType": "Sequelize.DATE"
+                },
+                "date": {
+                    "allowNull": true,
+                    "comment": "Fonction",
+                    "field": "date",
+                    "seqType": "Sequelize.STRING"
+                },
+                "photo": {
+                    "allowNull": true,
+                    "comment": "Photo",
+                    "field": "photo",
+                    "seqType": "Sequelize.STRING"
+                },
+                "commentaire": {
+                    "allowNull": true,
+                    "comment": "Commentaire",
+                    "field": "commentaire",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "localite": {
+                    "allowNull": true,
+                    "name": "localite",
+                    "field": "localite",
+                    "references": {
+                        "model": "localite",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "localite": {
+            "tableName": "localite",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "typedelocalite": {
+                    "allowNull": true,
+                    "name": "typedelocalite",
+                    "field": "typedelocalite",
+                    "references": {
+                        "model": "typedelocalite",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "media": {
+            "tableName": "media",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "model": {
+                    "allowNull": false,
+                    "comment": "Model",
+                    "field": "model",
+                    "seqType": "Sequelize.STRING"
+                },
+                "lien": {
+                    "allowNull": false,
+                    "comment": "Lien",
+                    "field": "lien",
+                    "seqType": "Sequelize.STRING"
+                },
+                "idmodel": {
+                    "allowNull": false,
+                    "comment": "ID model",
+                    "field": "idmodel",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "voyage": {
+                    "allowNull": true,
+                    "name": "voyage",
+                    "field": "voyage",
+                    "references": {
+                        "model": "voyage",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "evenement": {
+                    "allowNull": true,
+                    "name": "evenement",
+                    "field": "evenement",
+                    "references": {
+                        "model": "evenement",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "menu": {
+            "tableName": "menu",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "icone": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Icone",
+                    "field": "icone",
+                    "seqType": "Sequelize.STRING"
+                },
+                "position": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": 1
+                    },
+                    "comment": "Position",
+                    "field": "position",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "prefecture": {
+            "tableName": "prefecture",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                }
+            },
+            "indexes": []
+        },
+        "privilege": {
+            "tableName": "privilege",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "description": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "actif": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": true
+                    },
+                    "comment": "Actif?",
+                    "field": "actif",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "activite": {
+                    "allowNull": true,
+                    "name": "activite",
+                    "field": "activite",
+                    "references": {
+                        "model": "activite",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "role": {
+                    "allowNull": true,
+                    "name": "role",
+                    "field": "role",
+                    "references": {
+                        "model": "role",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "role": {
+            "tableName": "role",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": false,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                }
+            },
+            "indexes": []
+        },
+        "typedelocalite": {
+            "tableName": "typedelocalite",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                }
+            },
+            "indexes": []
+        },
+        "utilisateur": {
+            "tableName": "utilisateur",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nom": {
+                    "allowNull": false,
+                    "comment": "Nom",
+                    "field": "nom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "prenom": {
+                    "allowNull": false,
+                    "comment": "Prénom",
+                    "field": "prenom",
+                    "seqType": "Sequelize.STRING"
+                },
+                "telephone": {
+                    "allowNull": false,
+                    "comment": "Téléphone",
+                    "field": "telephone",
+                    "seqType": "Sequelize.STRING"
+                },
+                "email": {
+                    "allowNull": false,
+                    "comment": "Email",
+                    "field": "email",
+                    "seqType": "Sequelize.STRING"
+                },
+                "motdepasse": {
+                    "allowNull": false,
+                    "field": "motdepasse",
+                    "seqType": "Sequelize.STRING"
+                },
+                "actif": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": false
+                    },
+                    "field": "actif",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "photo": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": "fichiers/photoutilisateur/avatar_utilisateur.png"
+                    },
+                    "field": "photo",
+                    "seqType": "Sequelize.STRING"
+                },
+                "token": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "field": "token",
+                    "seqType": "Sequelize.STRING"
+                },
+                "role": {
+                    "allowNull": true,
+                    "name": "role",
+                    "field": "role",
+                    "references": {
+                        "model": "role",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "voyage": {
+            "tableName": "voyage",
+            "schema": {
+                "id": {
+                    "autoIncrement": true,
+                    "primaryKey": true,
+                    "comment": "ID",
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "distance": {
+                    "allowNull": true,
+                    "comment": "Distance en km",
+                    "field": "distance",
+                    "seqType": "Sequelize.FLOAT"
+                },
+                "datedepart": {
+                    "allowNull": true,
+                    "comment": "Date de départ",
+                    "field": "datedepart",
+                    "seqType": "Sequelize.DATE"
+                },
+                "datearrivee": {
+                    "allowNull": true,
+                    "comment": "Date d'arrivée",
+                    "field": "datearrivee",
+                    "seqType": "Sequelize.DATE"
+                },
+                "description": {
+                    "allowNull": true,
+                    "comment": "Description",
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "consommationcarburant": {
+                    "allowNull": true,
+                    "comment": "Consommation de carburant",
+                    "field": "consommationcarburant",
+                    "seqType": "Sequelize.FLOAT"
+                },
+                "origine": {
+                    "allowNull": true,
+                    "name": "origine",
+                    "field": "origine",
+                    "references": {
+                        "model": "localite",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "destination": {
+                    "allowNull": true,
+                    "name": "destination",
+                    "field": "destination",
+                    "references": {
+                        "model": "localite",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "path": "/Users/macbook/Documents/1-PROJETS/NODE/MISSIONKABA/backend/migrations/_current.json",
+    "backupPath": "/Users/macbook/Documents/1-PROJETS/NODE/MISSIONKABA/backend/migrations/_current_bak.json",
+    "exists": true,
+    "revision": 5
+}

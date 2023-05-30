@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "backend",
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#04491A",
+			"statusBar.background": "#04491A"
+		},
+		"todo-tree.tree.showBadges": false
+	}
+}
