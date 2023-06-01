@@ -33,13 +33,14 @@ roleController.add = async (req, res) => {
 
 
 roleController.getAll = async (req, res) => {
-
+    const page = req.query.page? +req.query.page : 1
+    const itemsPerPage = req.query.itemsPerPage? +req.query.itemsPerPage : 30
     const parametres = fonctions.removeNullValues(req.query)
     const parametresRequete = fonctions.removePaginationkeys(parametres)
 
     // console.log(JSON.stringify(parametres))
     try {
-        const { itemsPerPage = 30, page = 1 } = req.query
+    //    const { itemsPerPage = 30, page = 1 } = req.query
         const resultat = await Role.findAndCountAll(
             {
                 offset: (page - 1) * itemsPerPage,

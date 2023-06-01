@@ -32,8 +32,8 @@ const retour = await Voyage.findOne({
 }
 
 voyageController.getAll = async (req, res) => {
-    const  itemsPerPage = parseInt(req.query.itemsPerPage ??= 30)
-    const page = parseInt(req.query.page ??= 1)
+    const page = req.query.page? +req.query.page : 1
+    const itemsPerPage = req.query.itemsPerPage? +req.query.itemsPerPage : 30
 const parametres = fonctions.removeNullValues(req.query)
 const parametresRequete = fonctions.removePaginationkeys(parametres)
     try {
