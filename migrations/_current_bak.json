@@ -307,15 +307,15 @@
                 },
                 "typedevenement": {
                     "allowNull": true,
-                    "comment": "Date de levenement",
+                    "comment": "type de levenement",
                     "field": "typedevenement",
-                    "seqType": "Sequelize.DATE"
+                    "seqType": "Sequelize.STRING"
                 },
                 "date": {
                     "allowNull": true,
-                    "comment": "Fonction",
+                    "comment": "Date",
                     "field": "date",
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "Sequelize.DATE"
                 },
                 "photo": {
                     "allowNull": true,
@@ -781,5 +781,5 @@
     "path": "/Users/macbook/Documents/1-PROJETS/NODE/MISSIONKABA/backend/migrations/_current.json",
     "backupPath": "/Users/macbook/Documents/1-PROJETS/NODE/MISSIONKABA/backend/migrations/_current_bak.json",
     "exists": true,
-    "revision": 5
+    "revision": 6
 }

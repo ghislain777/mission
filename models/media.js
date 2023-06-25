@@ -21,6 +21,13 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: { name: "evenement", field: "evenement", allowNull: true }
             })
 
+            this.belongsTo(models.Contact, {
+                foreignKey: { name: 'contact', field: "contact", allowNull: true }
+            })
+            models.Contact.hasMany(this, {
+                foreignKey: { name: "contact", field: "contact", allowNull: true }
+            })
+
         }
     }
     Media.init({
@@ -33,28 +40,32 @@ module.exports = (sequelize, DataTypes) => {
         nom: {
             type: DataTypes.STRING,
             allowNull: false,
-            comment: "Nom"
+            comment: "Nom",
+            defaultValue: ""
         },
-        model: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            comment: "Model"
-        },
-        lien: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            comment: "Lien"
-        },
-        idmodel: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            comment: "ID model"
-        },
-
-        description: {
+        modele: {
             type: DataTypes.STRING,
             allowNull: true,
-            comment: 'Description'
+            defaultValue: "produit",
+            comment: 'Modele'
+        },
+        champ: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: "photo",
+            comment: 'Collone'
+        },
+        type: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: "image",
+            comment: 'type de media'
+        },
+        fichier: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "",
+            comment: "fichier"
         },
     }, {
         sequelize,

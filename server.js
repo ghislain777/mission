@@ -15,6 +15,8 @@ const prefectureRoutes = require('./routes/prefecture_routes.js')
  const voyageRoutes = require('./routes/voyage_routes.js')
  const localiteRoutes = require('./routes/localite_routes.js')
  const evenementRoutes = require('./routes/evenement_routes.js')
+const mediaRoutes = require('./routes/media_routes');
+
 const appRoutes = require('./routes/app_routes');
 
 
@@ -50,6 +52,7 @@ app.use('/api/contacts', contactRoutes);
 app.use('/api/voyages', voyageRoutes); 
 app.use('/api/localites', localiteRoutes); 
 app.use('/api/evenements', evenementRoutes); 
+app.use('/api/medias', mediaRoutes)
 app.use('/api/app', appRoutes); 
 
 

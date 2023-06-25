@@ -404,31 +404,46 @@
                 "nom": {
                     "allowNull": false,
                     "comment": "Nom",
+                    "defaultValue": {
+                        "value": ""
+                    },
                     "field": "nom",
                     "seqType": "Sequelize.STRING"
                 },
-                "model": {
-                    "allowNull": false,
-                    "comment": "Model",
-                    "field": "model",
-                    "seqType": "Sequelize.STRING"
-                },
-                "lien": {
-                    "allowNull": false,
-                    "comment": "Lien",
-                    "field": "lien",
-                    "seqType": "Sequelize.STRING"
-                },
-                "idmodel": {
-                    "allowNull": false,
-                    "comment": "ID model",
-                    "field": "idmodel",
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "description": {
+                "modele": {
                     "allowNull": true,
-                    "comment": "Description",
-                    "field": "description",
+                    "defaultValue": {
+                        "value": "produit"
+                    },
+                    "comment": "Modele",
+                    "field": "modele",
+                    "seqType": "Sequelize.STRING"
+                },
+                "champ": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": "photo"
+                    },
+                    "comment": "Collone",
+                    "field": "champ",
+                    "seqType": "Sequelize.STRING"
+                },
+                "type": {
+                    "allowNull": true,
+                    "defaultValue": {
+                        "value": "image"
+                    },
+                    "comment": "type de media",
+                    "field": "type",
+                    "seqType": "Sequelize.STRING"
+                },
+                "fichier": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "value": ""
+                    },
+                    "comment": "fichier",
+                    "field": "fichier",
                     "seqType": "Sequelize.STRING"
                 },
                 "voyage": {
@@ -449,6 +464,18 @@
                     "field": "evenement",
                     "references": {
                         "model": "evenement",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "contact": {
+                    "allowNull": true,
+                    "name": "contact",
+                    "field": "contact",
+                    "references": {
+                        "model": "contact",
                         "key": "id"
                     },
                     "onDelete": "SET NULL",
@@ -778,8 +805,8 @@
             "indexes": []
         }
     },
-    "path": "/Users/macbook/Documents/1-PROJETS/NODE/MISSIONKABA/backend/migrations/_current.json",
-    "backupPath": "/Users/macbook/Documents/1-PROJETS/NODE/MISSIONKABA/backend/migrations/_current_bak.json",
+    "path": "/home/ghislain/Documents/2023/1-PROJETS/MISSIONKABA/backend/migrations/_current.json",
+    "backupPath": "/home/ghislain/Documents/2023/1-PROJETS/MISSIONKABA/backend/migrations/_current_bak.json",
     "exists": true,
-    "revision": 6
+    "revision": 7
 }
