@@ -3,11 +3,12 @@ const { response, request } = require('express');
 const { where } = require('sequelize');
 const { Sequelize, Op } = require('sequelize');
 const fonctions = require('../fonctions');
-const {  Contact, Localite } = require('../models');
+const {  Contact, Localite, Media } = require('../models');
 const contactController = {}
 
 contactController.includeContact = [
-    Localite
+    Localite,
+    Media
 ]
 
 

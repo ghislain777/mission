@@ -1,5 +1,5 @@
 
-const {Localite,Prefecture, Contact, Evenement, Voyage,  Commune, District, Typedelocalite} = require('../models')
+const {Localite,Prefecture, Contact, Media, Evenement, Voyage,  Commune, District, Typedelocalite} = require('../models')
 
 
 const appService = {}
@@ -16,13 +16,13 @@ const promiseLocalites = Localite.findAll(
 // const PromiseCommune = Commune.findAll()
 // const PromiseDistrict = District.findAll()
 const promiseVoyage= Voyage.findAll({
-    include:[{model:Localite, as:"Origine", include:[Typedelocalite]}, {model:Localite, as:"Destination", include:[Typedelocalite]}]
+    include:[Media, {model:Localite, as:"Origine", include:[Typedelocalite]}, {model:Localite, as:"Destination", include:[Typedelocalite]}]
 })
 const promiseContact = Contact.findAll({
-    include: [Localite]
+    include: [Localite, Media]
 })
 const PromiseEvenement = Evenement.findAll({
-    include:[Localite]
+    include:[Localite, Media]
 })
 
 Promise.all([
